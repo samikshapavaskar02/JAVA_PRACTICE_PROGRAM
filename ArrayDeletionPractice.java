@@ -1,0 +1,58 @@
+import java.util.*;
+import java.util.Scanner;
+
+public class ArrayDeletionPractice
+{
+	static int deletion(int[] arr,int n,int x)
+	{
+		int i=0;
+		for(i=0;i<n;i++)
+		{
+			if(arr[i]==x)
+			{
+				break;
+			}
+		}
+		
+		if(i==n)
+		{
+			return n;
+		}
+		
+		for(int j=i;j<n-1;j++)
+		{
+			arr[j] = arr[j+1];
+		}
+		return n-1;
+	}
+	
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter size of array : ");
+		int n = sc.nextInt();
+		
+		System.out.println("Enter elements of array : ");
+		int[] arr = new int[n];
+		for(int i=0;i<n;i++)
+		{
+			arr[i] = sc.nextInt();
+		}
+		
+		System.out.print("Entered array is : ");
+		for(int i=0;i<n;i++)
+		{
+			System.out.print(arr[i]+" ");
+		}
+	
+		System.out.print("Enter element to delete from array : ");
+		int x = sc.nextInt();
+		
+		n = deletion(arr,n,x);
+		System.out.println("Updated Array : ");
+		for(int i=0;i<n;i++)
+		{
+			System.out.println(arr[i]);
+		}
+	}
+}
